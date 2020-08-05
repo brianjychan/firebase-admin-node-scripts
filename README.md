@@ -21,10 +21,14 @@ Use cases include emergency hotfixes and manual manipulations of your database (
 - Create your script in `src` 
     - Example: `/src/templateScript.ts`
     - Make sure to make the enclosed function the default export.
+    - Note that `/src/index.ts` recognizes `scriptFileName` based on the name of the file, not the name of the exported function
 
-- Run it using `npm run script {env} scriptFilename`
+- Run it using `npm run script {dev/production} scriptFilename`
     - Example: `npm run script dev templateScript` (if script is named `templateScript.ts`)
+        - If `production` is used, you must follow up with `confirm production {scriptFileName}`
     - This compiles using `tsc` before running. See `package.json` for details.
+
+- If you are adding this as a dir in your main repo, you can remove the `.git` folder in this dir
 
 --- 
 ### Other
